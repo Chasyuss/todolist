@@ -4,7 +4,8 @@ import './App.css';
 const App = () => {
   //초기상태설정
   const initialState = [
-    { id: 0, title: '리액트 개인과제', content: '시작하기', isDone: false }
+    { id: 0, title: '리액트 개인과제', content: '시작하기', isDone: false },
+    { id: 1, title: '리액트 개인과제2', content: '스타일링', isDone: false }
   ];
   const [todos, setTodos] = useState(initialState);
 
@@ -70,10 +71,32 @@ const App = () => {
             <input className='context1' type='text' placeholder='내용' value={content} onChange={handleInputChange} />
           </div>
         </div>
-
         <button className='addTodo' type="submit"> 추가하기 </button>
       </div>
 
+      <h3> Working..🔥 </h3>
+      {todos.filter(todo => !todo.isDone).map(todo => (
+        <div key={todo.id} className='todoCard'>
+          <h3>{todo.title}</h3>
+          <p>{todo.content}</p>
+          <button className='completebtn' onClick={() => toggleTodo(todo.id)}>
+            {todo.isDone ? '취소' : '완료'}
+          </button>
+          <button className='removebtn' onClick={() => removeTodo(todo.id)}>삭제</button>
+        </div>
+      ))}
+
+      <h3>Done...!🎉</h3>
+      {todos.filter(todo => todo.isDone).map(todo => (
+        <div key={todo.id} className='completeCard'>
+          <h3>{todo.title}</h3>
+          <p>{todo.content}</p>
+          <button className='completebtn' onClick={() => toggleTodo(todo.id)}>
+            {todo.isDone ? '취소' : '완료'}
+          </button>
+          <button className='removebtn' onClick={() => removeTodo(todo.id)}>삭제</button>
+        </div>
+      ))}
     </form>
   );
 }
