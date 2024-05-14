@@ -58,7 +58,7 @@ const App = () => {
 
   return (
     <form className='todolist' onSubmit={AddTodo}>
-      <h2> Todo List</h2>
+      <h2> ChaTODO LIST </h2>
       <div className='todolist-container'>
         <div className='items'>
           <div>
@@ -71,32 +71,37 @@ const App = () => {
             <input className='context1' type='text' placeholder='내용' value={content} onChange={handleInputChange} />
           </div>
         </div>
-        <button className='addTodo' type="submit"> 추가하기 </button>
+        <button className='addTodobtn' type="submit"> 추가하기 </button>
       </div>
 
       <h3> Working..🔥 </h3>
-      {todos.filter(todo => !todo.isDone).map(todo => (
-        <div key={todo.id} className='todoCard'>
-          <h3>{todo.title}</h3>
-          <p>{todo.content}</p>
-          <button className='completebtn' onClick={() => toggleTodo(todo.id)}>
-            {todo.isDone ? '취소' : '완료'}
-          </button>
-          <button className='removebtn' onClick={() => removeTodo(todo.id)}>삭제</button>
-        </div>
-      ))}
+      <div className='workingcardWraper'>
+        {todos.filter(todo => !todo.isDone).map(todo => (
+          <div key={todo.id} className='todoCard'>
+            <h3>{todo.title}</h3>
+            <p>{todo.content}</p>
+            <button className='completebtn' onClick={() => toggleTodo(todo.id)}>
+              {todo.isDone ? '취소' : '완료'}
+            </button>
+            <button className='removebtn' onClick={() => removeTodo(todo.id)}>삭제</button>
+          </div>
+        ))}
+      </div>
 
       <h3>Done...!🎉</h3>
-      {todos.filter(todo => todo.isDone).map(todo => (
-        <div key={todo.id} className='completeCard'>
-          <h3>{todo.title}</h3>
-          <p>{todo.content}</p>
-          <button className='completebtn' onClick={() => toggleTodo(todo.id)}>
-            {todo.isDone ? '취소' : '완료'}
-          </button>
-          <button className='removebtn' onClick={() => removeTodo(todo.id)}>삭제</button>
-        </div>
-      ))}
+      <div className='donecardWraper'>
+        {todos.filter(todo => todo.isDone).map(todo => (
+          <div key={todo.id} className='completeCard'>
+            <h3>{todo.title}</h3>
+            <p>{todo.content}</p>
+            <button className='completebtn' onClick={() => toggleTodo(todo.id)}>
+              {todo.isDone ? '취소' : '완료'}
+            </button>
+            <button className='removebtn' onClick={() => removeTodo(todo.id)}>삭제</button>
+          </div>
+        ))}
+      </div>
+
     </form>
   );
 }

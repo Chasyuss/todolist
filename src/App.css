@@ -5,15 +5,16 @@
 }
 
 .todolist h2 {
-  border: 1px solid black;
   text-align: center;
 }
 
 .todolist-container {
-  border: 1px solid #d2d2d2;
+  border: 1px solid #e9eff6;
   border-radius: 10px;
   padding: 20px;
-  background-color: #d2d2d2;
+  background-color: #afcbda;
+  display: flex;
+  flex-direction: row;
 }
 
 .items {
@@ -21,7 +22,6 @@
   flex-direction: row;
   gap: 20px;
   align-items: center;
-  /* justify-content: space-between; */
 }
 
 .items label {
@@ -30,14 +30,46 @@
 }
 
 .items input {
-  width: 100%;
-  border: 1px soild white;
   border-radius: 20px;
   padding: 8px;
 }
 
-.todolist-container .addTodo {
+.addTodobtn {
   padding: 10px 20px;
-  margin-top: 20px;
-  align-self: flex-end;
+  cursor: pointer;
+  background-color: #6698cb;
+  color: white;
+  border-radius: 20px;
+  margin: 20px;
+}
+.workingcardWraper,
+.donecardWraper {
+  display: flex;
+  /* 카드 일렬로 정렬 */
+  flex-flow: wrap;
+  gap: 10px;
+}
+
+.todoCard,
+.completeCard {
+  border: 2px solid black;
+  margin-top: 15px;
+  padding: 15px;
+  background-color: #c8d6da;
+  border-radius: 10px;
+}
+
+.removebtn {
+  background-color: #ffc0cb;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 20px;
+  margin: 10px;
+}
+
+.completebtn {
+  background-color: #82b3ed;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 20px;
 }
