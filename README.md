@@ -5,7 +5,10 @@ React를 사용하여 만든 **TODO LIST** 입니다.
 
 ## 📢 Running
 ```js
+#development
 ~$ yarn
+
+# watch mode
 ~$ yarn dev
 ```
 
