@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
+import List from './components/List';
+
 
 const App = () => {
   //초기상태설정
@@ -76,30 +78,12 @@ const App = () => {
 
       <h3> Working..🔥 </h3>
       <div className='workingcardWraper'>
-        {todos.filter(todo => !todo.isDone).map(todo => (
-          <div key={todo.id} className='todoCard'>
-            <h3>{todo.title}</h3>
-            <p>{todo.content}</p>
-            <button className='completebtn' onClick={() => toggleTodo(todo.id)}>
-              {todo.isDone ? '취소' : '완료'}
-            </button>
-            <button className='removebtn' onClick={() => removeTodo(todo.id)}>삭제</button>
-          </div>
-        ))}
+        <List todos={todos.filter(todo => !todo.isDone)} toggleTodo={toggleTodo} removeTodo={removeTodo} />
       </div>
 
       <h3>Done...!🎉</h3>
       <div className='donecardWraper'>
-        {todos.filter(todo => todo.isDone).map(todo => (
-          <div key={todo.id} className='completeCard'>
-            <h3>{todo.title}</h3>
-            <p>{todo.content}</p>
-            <button className='completebtn' onClick={() => toggleTodo(todo.id)}>
-              {todo.isDone ? '취소' : '완료'}
-            </button>
-            <button className='removebtn' onClick={() => removeTodo(todo.id)}>삭제</button>
-          </div>
-        ))}
+        <List todos={todos.filter(todo => todo.isDone)} toggleTodo={toggleTodo} removeTodo={removeTodo} />
       </div>
 
     </form>
