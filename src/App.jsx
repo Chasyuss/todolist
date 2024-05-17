@@ -26,17 +26,18 @@ const App = () => {
     setTitle(e.target.value);
   }
 
+
   // todo 추가
   const AddTodo = (e) => {
     e.preventDefault();
-    if (!title || !content) { // 제목 내용 비어있는지 확인 후 alert
+    if (!title.trim() || !content.trim()) { // 제목 내용 비어있는지 확인 후 alert
       alert("제목과 내용을 입력해주세요");
       return;
     }
 
     //새로운 todo 항목 생성
     const newTodo = {
-      id: uuidv4(),
+      id: uuidv4(), // 경우의수 겹치지 않게 id값 추가
       title: title,
       content: content,
       isDone: false
@@ -44,8 +45,10 @@ const App = () => {
 
     setTodos([...todos, newTodo]); // 새로운 todo 추가
 
-    setTitle(""); // 초기화 
+    setTitle(""); //  제어컴포넌트에서의 초기화 
     setContent(""); // 초기화
+
+    // e.target.reset(); // 비제어컴포넌트에서의 초기화 -> 폼 태그를 리셋해준다.
   };
 
   //toggle 
@@ -57,6 +60,7 @@ const App = () => {
   //삭제
   const removeTodo = (id) => {
     setTodos(todos.filter(todo => todo.id !== id));
+    //id 비교해서 맞는거 삭제하고 안맞는것만 필터링
   };
 
   return (
