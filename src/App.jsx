@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
+import { v4 as uuidv4 } from 'uuid';
 import List from './components/List';
 
 
@@ -35,7 +36,7 @@ const App = () => {
 
     //새로운 todo 항목 생성
     const newTodo = {
-      id: todos.length,
+      id: uuidv4(),
       title: title,
       content: content,
       isDone: false
