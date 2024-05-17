@@ -37,7 +37,7 @@ const App = () => {
 
     //새로운 todo 항목 생성
     const newTodo = {
-      id: crypto.randomUUID(), // 경우의수 겹치지 않게 랜덤한 id값 추가
+      id: uuidv4(), // 경우의수 겹치지 않게 id값 추가
       title: title,
       content: content,
       isDone: false
@@ -60,6 +60,7 @@ const App = () => {
   //삭제
   const removeTodo = (id) => {
     setTodos(todos.filter(todo => todo.id !== id));
+    //id 비교해서 맞는거 삭제하고 안맞는것만 필터링
   };
 
   return (
